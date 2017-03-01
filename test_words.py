@@ -1,16 +1,17 @@
 from words import wordLadder
 from unittest import TestCase
+import re
 
 class wordLadderTest(TestCase):
+  def setUp(self):
+    self.wl = wordLadder("hit", "cog", ["hot", "dot", "dog", "log", "cog"])
   def test_beingWord_accepted(self):
-    wl = wordLadder("hit", "cog", ["hot", "dot", "dog", "log", "cog"])
-    wl.beginWord = "hit"
-    self.assertEqual("hit", wl.beginWord)
+    self.assertEqual("hit", self.wl.beginWord)
   def test_endWord_accepted(self):
-    wl = wordLadder("hit", "cog", ["hot", "dot", "dog", "log", "cog"])
-    wl.endWord = "cog"
-    self.assertEqual("cog", wl.endWord)
+    self.assertEqual("cog", self.wl.endWord)
   def test_word_length(self):
-    wl = wordLadder("hit", "cog", ["hot", "dot", "dog", "log", "cog"])
-    self.assertTrue(wl.wordLength("hit"))
-    self.assertFalse(wl.wordLength("wordtoolong"))
+    self.assertTrue(self.wl.wordLength("hit"))
+    self.assertFalse(self.wl.wordLength("wordtoolong"))
+  def test_wordDiff(self):
+    self.assertListEqual(self.wl.wordDiff(self.wl.beginWord, self.wl.endWord),
+                         ['- h', '- i', '- t', '+ c', '+ o', '+ g'])

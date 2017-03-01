@@ -29,6 +29,9 @@ List error! Item in list contains entry that list longer than beginWord
 5
 """
 
+import re
+import difflib
+
 class wordLadder(object):
   def __init__(self, beginWord, endWord, wordList):
     self.beginWord = beginWord
@@ -43,5 +46,9 @@ class wordLadder(object):
       return True
     else:
       return False
+  def wordDiff(self, word1, word2):
+    differ = difflib.Differ()
+    diff = differ.compare(word1, word2)
+    return list(diff)
 
 
