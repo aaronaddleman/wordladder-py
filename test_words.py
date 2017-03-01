@@ -15,3 +15,5 @@ class wordLadderTest(TestCase):
   def test_wordDiff(self):
     self.assertListEqual(self.wl.wordDiff(self.wl.beginWord, self.wl.endWord),
                          ['- h', '- i', '- t', '+ c', '+ o', '+ g'])
+  def test_nextWord(self):
+    self.assertEqual(self.wl.nextWord(), "hot")

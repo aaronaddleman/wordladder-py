@@ -50,5 +50,5 @@ class wordLadder(object):
     differ = difflib.Differ()
     diff = differ.compare(word1, word2)
     return list(diff)
-
-
+  def nextWord(self):
+    return self.wordList.pop(0)
