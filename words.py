@@ -30,16 +30,18 @@ List error! Item in list contains entry that list longer than beginWord
 """
 
 class wordLadder(object):
-  def __init__(self):
-    self.beginWord = ""
-    self.endWord = ""
-    self.wordList = []
-  def beginWord(word):
+  def __init__(self, beginWord, endWord, wordList):
+    self.beginWord = beginWord
+    self.endWord = endWord
+    self.wordList = wordList
+  def beginWord(self, word):
     if wordLength(word):
       self.beginWord = word
-  def wordLength(word):
+  def wordLength(self, word):
     # test if the word is in the valid range
     if word and len(word) in range(1,5):
       return True
+    else:
+      return False
 
 
